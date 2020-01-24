@@ -1,9 +1,9 @@
 FROM php:7.3-fpm-alpine
 
-ENV DEPS "autoconf freetype-dev g++ git icu-dev imagemagick imagemagick-dev jpegoptim libjpeg-turbo-dev libpng-dev libtool libzip-dev make optipng postgresql-dev unzip"
+ENV DEPS "autoconf freetype-dev g++ git icu-dev imagemagick imagemagick-dev jpegoptim libjpeg-turbo-dev libpng-dev libtool libzip-dev make optipng unzip"
 
 RUN set -ex \
-    && apk --no-cache add $DEPS \
+    && apk --no-cache add $DEPS postgresql-dev \
     && docker-php-ext-configure gd \
         --with-gd \
         --with-freetype-dir=/usr/include/ \
